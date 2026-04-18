@@ -11,8 +11,8 @@ TABLES_DIR = RESULTS_DIR / "tablas"
 CONFIG_FILE = PROJECT_ROOT / "src" / "config.py"
 
 # === Archivos de datos ===
-DATA_FILE = DATA_DIR / "DKHousingPrices.parquet"
-SAMPLE_FILE = DATA_DIR / "DKHousingPricesSample100k.csv"
+DATA_FILE = DATA_DIR / "raw" / "DKHousingPrices.parquet"
+SAMPLE_FILE = DATA_DIR / "raw" / "DKHousingPricesSample100k.csv"
 
 CLEAN_FILE = DATA_DIR / "processed" / "cleaned_data.parquet"
 NULL_FILE = DATA_DIR / "anomalias" / "df_nulls.csv"
@@ -58,7 +58,7 @@ TRAIN_DATA_FILE = str(DATA_DIR / "processed" / "train_data.parquet")
 TEST_DATA_FILE = str(DATA_DIR / "processed" / "test_data.parquet")
 FEATURE_METADATA_FILE = str(DATA_DIR / "processed" / "feature_metadata.json")
 SELECTED_FEATURES_FILE = str(DATA_DIR / "processed" / "selected_features.txt")
-SCALERS_FILE = str(DATA_DIR / "processed" / "scalers_fixed.pkl")
+SCALERS_FILE = str(DATA_DIR / "processed" / "scalers.pkl")
 
 TARGET = "log_price"  # Variable objetivo transformada
 
