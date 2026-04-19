@@ -8,3 +8,7 @@ from .univariate_analysis import *
 from .enhanced_analysis import *
 from .visualization import *
 from .summary_analysis import *
+from .macro_analysis import *
+from .regional_analysis import *
+from .causality_analysis import *
+from .typology_analysis import *

@@ -50,3 +50,30 @@ def create_cyclic_temporal_features(df: pd.DataFrame, date_col: str = 'date') ->
     df_result['quarter_sin'] = np.sin(2 * np.pi * df_result[date_col].dt.quarter / 4)
     df_result['quarter_cos'] = np.cos(2 * np.pi * df_result[date_col].dt.quarter / 4)
     return df_result
+
+def add_crisis_period(df: pd.DataFrame, date_col: str = 'date') -> pd.DataFrame:
+    """
+    Crear campo 'período de crisis' con 5 valores históricos.
+    - pre_liberalizacion (<1995)
+    - boom_hipotecario (1995–2007)
+    - crisis_financiera (2008–2012)
+    - recuperacion (2013–2019)
+    - post_covid (2020+)
+    """
+    df_result = df.copy()
+    if not pd.api.types.is_datetime64_any_dtype(df_result[date_col]):
+        df_result[date_col] = pd.to_datetime(df_result[date_col])
+        
+    years = df_result[date_col].dt.year
+    
+    conditions = [
+        years < 1995,
+        (years >= 1995) & (years <= 2007),
+        (years >= 2008) & (years <= 2012),
+        (years >= 2013) & (years <= 2019),
+        years >= 2020
+    ]
+    choices = ['pre_liberalizacion', 'boom_hipotecario', 'crisis_financiera', 'recuperacion', 'post_covid']
+    df_result['periodo_de_crisis'] = np.select(conditions, choices, default='unknown')
+    
+    return df_result
