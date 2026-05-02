@@ -22,7 +22,7 @@ La granularidad de los datos es a nivel de **propiedad individual por transacci�
 
 ## 5. Problemas de Calidad Detectados
 Durante la exploración inicial se identificaron las siguientes incidencias:
-*   **Ventas No Representativas:** Presencia de ventas entre familiares, subastas forenses u otros tipos de traspaso (`sales_type` distinto a venta libre) que distorsionan el valor real de mercado.
+*   **Ventas No Representativas:** Presencia de ventas entre familiares, subastas forzosas (subastas de ejecución hipotecaria) u otros tipos de traspaso (`sales_type` distinto a venta libre) que distorsionan el valor real de mercado.
 *   **Datos Faltantes (Nulos):** Registros críticos carentes de precio de compra, fecha de venta o tipo de vivienda.
 *   **Valores Atípicos (Outliers):** Precios por metro cuadrado extremadamente bajos o altos, presuntamente originados por errores de digitación o propiedades anómalas.
 *   **Celdas con Baja Cobertura:** Algunos trimestres o regiones presentan volúmenes de transacciones muy bajos (n < 50), lo cual podría generar volatilidad estadística en los índices calculados.
